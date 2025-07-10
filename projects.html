@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Projects</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS CSS (Animate on Scroll) -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <!-- Tailwind Custom Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+          },
+          colors: {
+            glass: 'rgba(255, 255, 255, 0.1)',
+          },
+          backdropBlur: {
+            xs: '2px',
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+
+ 
+</style>
+</head>
+
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white">
+
+  <section class="max-w-6xl mx-auto px-4 py-10">
+    <h1 class="text-4xl font-bold mb-4 text-center" data-aos="fade-down">✨ My Portfolio Projects</h1>
+
+    <!-- Home Button -->
+    <div class="flex justify-center mb-10" data-aos="fade-up" data-aos-delay="300">
+      <a href="index.html" 
+         class="px-6 py-3 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition">
+         Home
+      </a>
+    </div>
+
+    <div id="projects" class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <!-- Project cards will be injected here -->
+    </div>
+  </section>
+
+  <!-- AOS Animation JS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+  </script>
+
+  <!-- projects.js -->
+  <script src="projects.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Register</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen flex items-center justify-center font-sans px-4">
+
+  <div class="bg-gray-800 rounded-lg shadow-lg p-8 max-w-md w-full">
+    <h2 class="text-3xl font-bold mb-8 text-center text-indigo-400">Login  Admin</h2>
+    
+    <!-- <form class="space-y-6" id="register-form"> -->
+      <input
+        type="email"
+        id="email"
+        placeholder="Email"
+        required
+        class="w-full p-3 rounded-md bg-gray-700 text-gray-100 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+      />
+    <br><br>
+      <input
+        type="password"
+        id="password"
+        placeholder="Password"
+        required
+        class="w-full p-3 rounded-md bg-gray-700 text-gray-100 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+      />
+      <br><br>
+      <button
+        id="register-btn"
+        type="submit"
+        class="w-full bg-indigo-500 hover:bg-indigo-600 transition-colors text-white font-semibold p-3 rounded-md"
+      >
+        Register
+      </button>
+    <!-- </form> -->
+    
+    <p class="mt-6 text-center text-gray-400">
+      Forgot your password? 
+      <a href="resetPassword.html" class="text-indigo-400 hover:underline">Reset  password here</a><br><br>
+      <a href="index.html" class="text-indigo-400 hover:underline">home</a>
+
+    </p>
+  </div>
+
+  <script src="adminLogin.js" type="module"></script>
+</body>
+</html>
