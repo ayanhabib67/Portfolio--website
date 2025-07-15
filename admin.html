@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Agustina&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    
+    <style>
+        body {
+            background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%);
+            min-height: 100vh;
+            padding: 1rem;
+        }
+        .neon-glow {
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.5), 0 0 20px rgba(59, 130, 246, 0.3);
+        }
+        .neon-input {
+            transition: all 0.3s ease;
+        }
+        .neon-input:focus {
+            box-shadow: 0 0 15px rgba(147, 51, 234, 0.7);
+            border-color: #9333ea;
+        }
+        .neon-button {
+            background: linear-gradient(45deg, #3b82f6, #9333ea);
+            transition: all 0.3s ease;
+        }
+        .neon-button:hover {
+            box-shadow: 0 0 20px rgba(147, 51, 234, 0.7);
+        }
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        .skill-icon {
+            font-size: 2rem;
+            color: #3b82f6;
+            transition: all 0.3s ease;
+        }
+        .skill-icon:hover {
+            color: #9333ea;
+            transform: scale(1.1);
+        }
+        .skill-input-group {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.5rem;
+        }
+        @media (min-width: 640px) {
+            .skill-input-group {
+                grid-template-columns: 1fr 1fr auto;
+            }
+        }
+        .skill-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0.5rem;
+            background: rgba(31, 41, 55, 0.5);
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        .skill-item:hover {
+            background: rgba(55, 65, 81, 0.5);
+        }
+    </style>
+</head>
+
+
+
+
+
+
+
+
+
+<body class="font-sans text-white">
+<!-- Navbar -->
+<nav class="fixed top-0 left-0 w-full bg-[#0a2540] backdrop-blur-lg shadow-lg border-b border-gray-700/50 z-50 px-6 py-4">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <div id="MyName" class="navbar-brand text-white text-lg font-bold">Admin Dashboard</div>
+  
+      <!-- Desktop Menu -->
+      <ul class="hidden md:flex space-x-6 items-center">
+        <li><a href="UserMessage.html" class="text-gray-300 hover:text-white transition">View Messages</a></li>
+        <li><a href="#" class="text-gray-300 hover:text-white transition">Home</a></li>
+        <li><a href="#aboutMeText" class="text-gray-300 hover:text-white transition">About</a></li>
+        <li><a href="#SkillsName" class="text-gray-300 hover:text-white transition">Skills</a></li>
+        <li><a href="#profilePhotoUrl" class="text-gray-300 hover:text-white transition">Name</a></li>
+        <li><a href="#projects" class="text-gray-300 hover:text-white transition">Projects</a></li>
+        <li><a href="#speechInput" class="text-gray-300 hover:text-white transition">Voice Speaker</a></li>
+        <li>
+          <button id="logout-Btn" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded transition flex items-center">
+            <i class="fas fa-sign-out-alt mr-2"></i> Logout
+          </button>
+        </li>
+      </ul>
+  
+      <!-- Mobile Menu Toggle -->
+      <div class="md:hidden relative">
+        <input type="checkbox" id="mobile-menu-toggle" class="hidden peer" />
+        <label for="mobile-menu-toggle" class="cursor-pointer text-gray-300 hover:text-white">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </label>
+  
+        <!-- Mobile Menu -->
+        <div class="absolute right-0 mt-2 w-48 bg-[#0a2540] backdrop-blur-md rounded-md shadow-lg py-1 hidden peer-checked:block border border-gray-700/30 z-50">
+          <a href="UserMessage.html" class="block py-2 px-4 text-gray-300 hover:text-white hover:bg-gray-700/40 rounded">View Messages</a>
+          <a href="#" class="block py-2 px-4 text-gray-300 hover:text-white hover:bg-gray-700/40 rounded">Home</a>
+          <a href="#aboutMeText" class="block py-2 px-4 text-gray-300 hover:text-white hover:bg-gray-700/40 rounded">About</a>
+          <a href="#SkillsName" class="block py-2 px-4 text-gray-300 hover:text-white hover:bg-gray-700/40 rounded">Skills</a>
+          <a href="#profilePhotoUrl" class="block py-2 px-4 text-gray-300 hover:text-white hover:bg-gray-700/40 rounded">Name</a>
+          <a href="#projects" class="block py-2 px-4 text-gray-300 hover:text-white hover:bg-gray-700/40 rounded">Projects</a>
+          <a href="#speechInput" class="block py-2 px-4 text-gray-300 hover:text-white hover:bg-gray-700/40 rounded">Voice Speaker</a>
+          <button id="logout-Btn2" class="w-full bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded mt-2 flex items-center justify-center">
+            <i class="fas fa-sign-out-alt mr-2"></i> Logout
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+          
+      
+          
+
+
+
+<br><br><br><br><br><br>
+
+    
+    <div class="container mx-auto px-2 sm:px-4">
+        <!-- Header Section -->
+        <header class="text-center mb-8 sm:mb-12">
+            <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">Portfolio Admin Dashboard</h1>
+            <p class="text-sm sm:text-base text-gray-400">Manage your portfolio projects and skills</p>
+        </header>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
+            <!-- Left Column - Add Project Form -->
+            <div class="bg-gray-900 rounded-lg shadow-lg p-4 sm:p-6 neon-glow lg:col-span-2">
+                <h2 class="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-center">Add New Project  Page</h2>
+                
+                <div class="space-y-3 sm:space-y-4">
+                    <div>
+                        <label for="title" class="block mb-1 sm:mb-2 text-sm sm:text-base text-gray-300">Project Title</label>
+                        <input 
+                            type="text" 
+                            id="title" 
+                            placeholder="Enter project title" 
+                            class="w-full p-2 sm:p-3 text-sm sm:text-base bg-gray-800 text-white border border-gray-600 rounded-md focus:outline-none neon-input"
+                        >
+                    </div>
+                    
+                    <div>
+                        <label for="discripction" class="block mb-1 sm:mb-2 text-sm sm:text-base text-gray-300">Description</label>
+                        <textarea 
+                            id="discripction" 
+                            placeholder="Enter project description" 
+                            class="w-full p-2 sm:p-3 text-sm sm:text-base bg-gray-800 text-white border border-gray-600 rounded-md focus:outline-none neon-input h-24 sm:h-32"
+                        ></textarea>
+                    </div>
+                    
+                    <div>
+                        <label for="projectName" class="block mb-1 sm:mb-2 text-sm sm:text-base text-gray-300">Technologies</label>
+                        <input 
+                            type="text" 
+                            id="projectName" 
+                            placeholder="HTML, CSS, JavaScript, etc." 
+                            class="w-full p-2 sm:p-3 text-sm sm:text-base bg-gray-800 text-white border border-gray-600 rounded-md focus:outline-none neon-input"
+                        >
+                    </div>
+                    
+                    <div>
+                        <label for="url" class="block mb-1 sm:mb-2 text-sm sm:text-base text-gray-300">Project URL</label>
+                        <input 
+                            type="url" 
+                            id="url" 
+                            placeholder="https://example.com" 
+                            class="w-full p-2 sm:p-3 text-sm sm:text-base bg-gray-800 text-white border border-gray-600 rounded-md focus:outline-none neon-input"
+                        >
+                    </div>
+                    
+                    <div>
+                        <label for="imageUrl" class="block mb-1 sm:mb-2 text-sm sm:text-base text-gray-300">Image URL</label>
+                        <input 
+                            type="url" 
+                            id="imageUrl" 
+                            placeholder="https://example.com/image.jpg" 
+                            class="w-full p-2 sm:p-3 text-sm sm:text-base bg-gray-800 text-white border border-gray-600 rounded-md focus:outline-none neon-input"
+                        >
+
+
+                        <label for="imageUrl" class="block mb-1 sm:mb-2 text-sm sm:text-base text-gray-300">Code URL</label>
+                        <input 
+                        type="url" 
+                        id="codeUrl" 
+                        placeholder="https://example.com" 
+                        class="w-full p-2 sm:p-3 text-sm sm:text-base bg-gray-800 text-white border border-gray-600 rounded-md focus:outline-none neon-input"
+                    >
+
+                    </div>
+                    
+                    <button 
+                        type="submit" 
+                        id="addPortfolio" 
+                        class="w-full text-white p-2 sm:p-3 text-sm sm:text-base rounded-md neon-button font-bold"
+                    >
+                        <i class="fas fa-plus mr-1 sm:mr-2"></i> Add Project
+                    </button>
+                </div>
+            </div>
+
+            <!-- Right Column - Admin Actions -->
+            <div class="space-y-4 sm:space-y-6">
+                <!-- Skills Management -->
+                <div class="bg-gray-900 rounded-lg shadow-lg p-4 sm:p-6 neon-glow">
+                    <h2 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-center">Manage Skills</h2>
+                    
+                    <div class="mb-3 sm:mb-4">
+                        <label class="block mb-1 sm:mb-2 text-sm sm:text-base text-gray-300">Add New Skill</label>
+                        <div class="skill-input-group">
+                            <input 
+                                type="text" 
+                                id="SkillsName" 
+                                placeholder="Skill name (e.g., JavaScript)"
+                                class="p-2 sm:p-3 text-sm sm:text-base bg-gray-800 text-white border border-gray-600 rounded-md focus:outline-none neon-input"
+                            >
+                            <input 
+                                type="text" 
+                                id="Skills" 
+                                placeholder="Icon class (e.g., devicon-javascript-plain)"
+                                class="p-2 sm:p-3 text-sm sm:text-base bg-gray-800 text-white border border-gray-600 rounded-md focus:outline-none neon-input"
+                            >
+                            <button 
+                                id="Skills-Btn" 
+                                class="bg-purple-600 text-white px-3 sm:px-4 py-2 sm:py-3 rounded-md hover:bg-purple-700 transition flex items-center justify-center"
+                                title="Add Skill"
+                            >
+                                <i class="fas fa-plus text-sm sm:text-base"></i>
+                            </button>
+                        </div>
+                        <p class="text-xs text-gray-400 mt-1 sm:mt-2">
+                            Find icon classes at <a href="https://devicon.dev" target="_blank" class="text-blue-400 hover:underline">devicon.dev</a>
+                        </p>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3" id="showSkills">
+                        <!-- Skills will be displayed here -->
+                    </div>
+                </div>
+
+                <!-- Admin Actions -->
+                <!-- <div class="bg-gray-900 rounded-lg shadow-lg p-4 sm:p-6 neon-glow space-y-3 sm:space-y-4">
+                    <h2 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-center">Admin Actions</h2>
+                     -->
+                   
+                    
+                    <!-- <button 
+                        id="logout-Btn"
+                        class="w-full bg-red-600 text-white px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded hover:bg-red-700 focus:outline-none transition flex items-center justify-center"
+                    >
+                        <i class="fas fa-sign-out-alt mr-1 sm:mr-2"></i> Logout
+                    </button> -->
+                <!-- </div> -->
+            </div>
+        </div>
+
+
+<!-- Add this section right after the Admin Actions section -->
+<div class="bg-gray-900 rounded-lg shadow-lg p-4 sm:p-6 neon-glow mt-6">
+    <h2 class="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-center">About Me Section</h2>
+    
+    <div class="space-y-4">
+        <div>
+            <label for="aboutText" class="block mb-1 sm:mb-2 text-sm sm:text-base text-gray-300">About Me Text</label>
+            <textarea 
+                id="aboutMeText" 
+                placeholder="Enter your about me description" 
+                class="w-full p-2 sm:p-3 text-sm sm:text-base bg-gray-800 text-white border border-gray-600 rounded-md focus:outline-none neon-input h-32 sm:h-40"
+            ></textarea>
+        </div>
+        
+        <div>
+         
+        </div>
+        
+        <button 
+            id="saveAboutBtn" 
+            class="w-full text-white p-2 sm:p-3 text-sm sm:text-base rounded-md neon-button font-bold"
+        >
+            <i class="fas fa-save mr-1 sm:mr-2"></i> Save About Me
+        </button>
+    </div>
+</div>
+
+
+
+
+
+
+<!-- Add this right after the About Me textarea in the About Me Section -->
+<div class="bg-gray-900 rounded-lg shadow-lg p-4 sm:p-6 neon-glow mt-6">
+    <h2 class="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-center">Profile Photo URL</h2>
+    
+    <div class="space-y-4">
+
+        <div>
+            <label for="profilePhotoUrl" class="block mb-1 sm:mb-2 text-sm sm:text-base text-gray-300">Profile Photo URL</label>
+            <input 
+                type="url" 
+                id="profilePhotoUrl" 
+                placeholder="https://example.com/profile.jpg" 
+                class="w-full p-2 sm:p-3 text-sm sm:text-base bg-gray-800 text-white border border-gray-600 rounded-md focus:outline-none neon-input"
+            >
+            <div class="mt-2 flex justify-center">
+                <div id="profilePhotoPreview" class="w-24 h-24 sm:w-32 sm:h-32 rounded-full bg-gray-700 overflow-hidden border-2 border-gray-600 flex items-center justify-center">
+                    <!-- <span class="text-gray-400">Preview</span> -->
+                   
+                </div>
+                <div id="del-btn"></div>
+            </div>
+        </div>
+        
+        <button 
+            id="add-My-image-btn" 
+            class="w-full text-white p-2 sm:p-3 text-sm sm:text-base rounded-md neon-button font-bold"
+        >
+            <i class="fas fa-save mr-1 sm:mr-2"></i> Save Image
+        </button>
+    </div>
+</div>
+
+
+
+<!-- Add this section where you want the name input to appear -->
+<div class="bg-gray-900 rounded-lg shadow-lg p-4 sm:p-6 neon-glow mt-6">
+    <h2 class="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-center">Your Name</h2>
+    
+    <div class="space-y-4">
+        <div>
+            <label for="userName" class="block mb-1 sm:mb-2 text-sm sm:text-base text-gray-300">Name</label>
+            <input 
+                type="text" 
+                id="addMyName" 
+                placeholder="Enter your name" 
+                class="w-full p-2 sm:p-3 text-sm sm:text-base bg-gray-800 text-white border border-gray-600 rounded-md focus:outline-none neon-input"
+            >
+        </div>
+        <div id="currentNameDisplay" class="text-center text-lg text-blue-300 py-2">
+           
+        </div>
+        <button 
+            id="save-Name-Btn" 
+            class="w-full text-white p-2 sm:p-3 text-sm sm:text-base rounded-md neon-button font-bold"
+        >
+            <i class="fas fa-save mr-1 sm:mr-2"></i> Save Name
+        </button>
+    </div>
+</div>
+
+
+<div class="bg-gray-900 rounded-lg shadow-lg p-4 sm:p-6 neon-glow mt-6">
+    <h2 class="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-center">Voice Speaker</h2>
+    
+    <div class="space-y-4">
+        <div>
+            <label for="speechInput" class="block mb-1 sm:mb-2 text-sm sm:text-base text-gray-300">Enter Text</label>
+            <input 
+                type="text" 
+                id="speechInput" 
+                placeholder="Type something to speak..." 
+                class="w-full p-2 sm:p-3 text-sm sm:text-base bg-gray-800 text-white border border-gray-600 rounded-md focus:outline-none neon-input"
+            >
+
+            <div id="voice"></div>
+        </div>
+        
+        <div class="flex justify-center">
+          
+            <button 
+            id="speakBtn" 
+            class="w-full text-white p-2 sm:p-3 text-sm sm:text-base rounded-md neon-button font-bold"
+        >
+            <i class="fas fa-save mr-1 sm:mr-2"></i>Save Voice 
+        </button>
+
+
+        </div>
+    </div>
+</div>
+
+<br><br><br>
+
+
+        <div class="bg-gray-900 rounded-lg shadow-lg p-4 sm:p-6 neon-glow lg:col-span-2">
+            <h2 class="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-center">Add New Main  Page</h2>
+            
+            <div class="space-y-3 sm:space-y-4">
+                <div>
+                    <label for="title" class="block mb-1 sm:mb-2 text-sm sm:text-base text-gray-300">Project Title</label>
+                    <input 
+                        type="text" 
+                        id="title11" 
+                        placeholder="Enter project title" 
+                        class="w-full p-2 sm:p-3 text-sm sm:text-base bg-gray-800 text-white border border-gray-600 rounded-md focus:outline-none neon-input"
+                    >
+                </div>
+                
+                <div>
+                    <label for="discripction" class="block mb-1 sm:mb-2 text-sm sm:text-base text-gray-300">Description</label>
+                    <textarea 
+                        id="discripction22" 
+                        placeholder="Enter project description" 
+                        class="w-full p-2 sm:p-3 text-sm sm:text-base bg-gray-800 text-white border border-gray-600 rounded-md focus:outline-none neon-input h-24 sm:h-32"
+                    ></textarea>
+                </div>
+                
+                <div>
+                    <label for="projectName" class="block mb-1 sm:mb-2 text-sm sm:text-base text-gray-300">Technologies</label>
+                    <input 
+                        type="text" 
+                        id="projectName33" 
+                        placeholder="HTML, CSS, JavaScript, etc." 
+                        class="w-full p-2 sm:p-3 text-sm sm:text-base bg-gray-800 text-white border border-gray-600 rounded-md focus:outline-none neon-input"
+                    >
+                </div>
+                
+                <div>
+                    <label for="url" class="block mb-1 sm:mb-2 text-sm sm:text-base text-gray-300">Project URL</label>
+                    <input 
+                        type="url" 
+                        id="url44" 
+                        placeholder="https://example.com" 
+                        class="w-full p-2 sm:p-3 text-sm sm:text-base bg-gray-800 text-white border border-gray-600 rounded-md focus:outline-none neon-input"
+                    >
+                </div>
+                
+                <div>
+                    <label for="imageUrl" class="block mb-1 sm:mb-2 text-sm sm:text-base text-gray-300">Image URL</label>
+                    <input 
+                        type="url" 
+                        id="imageUrl55" 
+                        placeholder="https://example.com/image.jpg" 
+                        class="w-full p-2 sm:p-3 text-sm sm:text-base bg-gray-800 text-white border border-gray-600 rounded-md focus:outline-none neon-input"
+                    >
+                </div>
+                
+                <label for="imageUrl" class="block mb-1 sm:mb-2 text-sm sm:text-base text-gray-300">Code URL</label>
+                <input 
+                type="url" 
+                id="codeUrl66" 
+                placeholder="https://example.com" 
+                class="w-full p-2 sm:p-3 text-sm sm:text-base bg-gray-800 text-white border border-gray-600 rounded-md focus:outline-none neon-input"
+            >
+
+
+
+
+                <button 
+                    type="submit" 
+                    id="addPortfolioTO-M" 
+                    class="w-full text-white p-2 sm:p-3 text-sm sm:text-base rounded-md neon-button font-bold"
+                >
+                    <i class="fas fa-plus mr-1 sm:mr-2"></i> Add Project
+                </button>
+            </div>
+        </div>
+    
+    
+
+
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="mt-8 sm:mt-12">
+            <h2 class="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-center">Current Projects (Main Page)</h2>
+            <div id="projects22" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                
+            </div>
+        </div>
+
+
+
+
+
+
+        <div class="mt-8 sm:mt-12">
+            <h2 class="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-center">Current Projects (Project Page)</h2>
+            <div id="projects" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+
+
+
+
+
+    <section id="aboutMeget" class="bg-white dark:bg-gray-900 shadow-lg rounded-2xl p-6 mb-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl border border-gray-200 dark:border-gray-700">
+        
+      </section>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="admin.js" type="module"></script>
+</body>
+</html>

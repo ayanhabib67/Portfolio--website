@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>User Messages</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      background-color: #1a202c; /* dark bg */
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen font-sans">
+
+  <section class="max-w-5xl mx-auto px-6 py-12">
+    <h1 class="text-4xl font-bold mb-10 text-center text-white">User Messages</h1>
+
+    <div id="projects" class="space-y-6">
+      <!-- Messages will be injected here -->
+    </div>
+  </section>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="UserMessage.js" type="module"></script>
+</body>
+</html>

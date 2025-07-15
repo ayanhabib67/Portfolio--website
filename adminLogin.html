@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Register</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      background-image: url('https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+</head>
+<body class="text-gray-100 min-h-screen flex items-center justify-center px-4">
+
+  <div class="bg-white/10 dark:bg-gray-800/20 backdrop-blur-md rounded-xl shadow-xl p-8 max-w-md w-full border border-gray-200/20 dark:border-gray-700/40">
+    <h2 class="text-3xl font-bold mb-8 text-center text-indigo-400">Login Admin</h2>
+    
+    <input
+      type="email"
+      id="email"
+      placeholder="Email"
+      required
+      class="w-full p-3 rounded-md bg-gray-700/70 text-gray-100 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+    />
+    <br><br>
+    <input
+      type="password"
+      id="password"
+      placeholder="Password"
+      required
+      class="w-full p-3 rounded-md bg-gray-700/70 text-gray-100 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+    />
+    <br><br>
+    <button
+      id="register-btn"
+      type="submit"
+      class="w-full bg-indigo-500 hover:bg-indigo-600 transition-colors text-white font-semibold p-3 rounded-md"
+    >
+      Register
+    </button>
+
+    <p class="mt-6 text-center text-gray-300">
+      Forgot your password? 
+      <a href="resetPassword.html" class="text-indigo-400 hover:underline">Reset password here</a><br><br>
+      <a href="index.html" class="text-indigo-400 hover:underline">Home</a>
+    </p>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="adminLogin.js" type="module"></script>
+</body>
+</html>
